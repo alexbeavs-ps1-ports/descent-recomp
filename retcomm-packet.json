@@ -1,0 +1,98 @@
+{
+  "format_version": 1,
+  "id": "descent-psx",
+  "name": "Descent",
+  "kind": "recomp",
+  "platform": "psx",
+  "source_repo": "descent-recomp",
+  "rom_identity": {
+    "crc32": [
+      "91d79238"
+    ],
+    "md5": [
+      "951652feb10549ed207464556c605325"
+    ],
+    "sha1": [
+      "0ae230e4640f01e67d698c21567679ca273094a1"
+    ],
+    "disc_serials": [
+      "SLES-00055"
+    ],
+    "sizes": [
+      543375504
+    ],
+    "filenames": [
+      "Descent (Europe).cue",
+      "Descent (Europe).bin"
+    ],
+    "track_counts": [
+      1
+    ],
+    "disc_fps": [
+      "8cd453762525fb4570c33ccb303e0070d7d4bf2464d0c362be285776415c0456"
+    ],
+    "require_cue": true
+  },
+  "rom_extensions": [
+    ".cue",
+    ".bin",
+    ".chd"
+  ],
+  "bios_identity": {
+    "required": true,
+    "name": "SCPH5552.BIN",
+    "profile": "SCPH5552",
+    "crc32": [
+      "d786f0b9"
+    ],
+    "md5": [
+      "32736f17079d0b2b7024407c39bd3050"
+    ],
+    "sha1": [
+      "f6bc2d1f5eb6593de7d089c425ac681d6fffd3f0"
+    ],
+    "sha256": [
+      "1faaa18fa820a0225e488d9f086296b8e6c46df739666093987ff7d8fd352c09"
+    ],
+    "sizes": [
+      524288
+    ],
+    "filenames": [
+      "SCPH5552.BIN"
+    ]
+  },
+  "release": {
+    "github": "alexbeavs-ps1-ports/descent-recomp",
+    "allow_prerelease": false,
+    "asset_glob": {
+      "windows-x64": "descent-*-windows-x64.zip",
+      "linux-x64": "descent-*-linux-x64.zip",
+      "macos-arm64": "descent-*-macos-arm64.zip",
+      "macos-x64": "descent-*-macos-x64.zip"
+    }
+  },
+  "launch": {
+    "windows": "descent.exe",
+    "linux": "descent",
+    "macos": "descent"
+  },
+  "build": {
+    "source": {
+      "github": "alexbeavs-ps1-ports/descent-recomp",
+      "ref": ""
+    },
+    "toolchain": {
+      "id": "cmake-clang-v1",
+      "min_version": "1.0.14"
+    },
+    "generate": {
+      "engine": "psxrecomp",
+      "config": "game.toml"
+    },
+    "cmake": {
+      "build_dir": "build",
+      "target": "psx-runtime",
+      "config": "Release"
+    }
+  }
+}

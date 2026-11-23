@@ -1,0 +1,59 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Descent"
+id = "SLES-00055"
+players = 1
+exe = "disc/SLES_000.55"
+disc = "disc/Descent (Europe).cue"
+discs = ["disc/Descent (Europe).cue"]
+disc_serials = ["SLES-00055"]
+load_address = "0x80010010"
+entry_pc = "0x800668DC"
+text_size = "0x000B1800"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Descent (Europe).bin"
+cue_name = "Descent (Europe).cue"
+boot_exe = "SLES_000.55"
+known_sizes = [543375504]
+known_md5 = [
+  "951652feb10549ed207464556c605325",
+]
+known_sha1 = [
+  "0ae230e4640f01e67d698c21567679ca273094a1",
+]
+known_crc32 = [
+  "91d79238",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH5552.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+bios_hle = false
+window_title = "Descent Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "8cd453762525fb4570c33ccb303e0070d7d4bf2464d0c362be285776415c0456"
